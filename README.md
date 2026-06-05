@@ -1,1 +1,8 @@
-# rankboost_experiment
+# rankboost-experiment
+
+incorporates my implementations of
+
+ada boost 
+
+rankboost
+
