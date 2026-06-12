@@ -1,13 +1,12 @@
 from adaboost.mydataset import Data
 from adaboost.stump import Stump
+import math
 
 data = Data()
 
 stump = Stump(threshold=2)
 
 predictions = stump.predict_all(data.x)
-
-error = 0
 
 print("x:", data.x)
 print("y:", data.y)
@@ -24,15 +23,16 @@ for threshold in thresholds:
     stump = Stump(threshold = threshold)
     predictions = stump.predict_all(data.x)
 
+    error = 0.2
+
+    for i in range(len(data.y)):
+        if predictions[i] != data.y[i]:
+            error += data.weights[i]
 
     if error < best_error:
         best_error = error
         best_stump = stump
         best_predictions = predictions
-
-    for i in range(len(data.y)):
-        if predictions[i] != data.y[i]:
-            error += data.weights[i]
 
     print ("threshold:", threshold)
     print ("predictions", predictions)
@@ -43,3 +43,8 @@ print ("BEST STUMP:")
 print ("threshold:", best_stump.threshold)
 print ("error:", best_error)
 print ("predictions:", best_predictions)
+
+
+alpha = 0.5 * math.log((1 - best_error) / best_error)
+
+print ("alpha:", alpha)
