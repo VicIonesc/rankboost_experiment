@@ -48,3 +48,5 @@ print ("predictions:", best_predictions)
 alpha = 0.5 * math.log((1 - best_error) / best_error)
 
 print ("alpha:", alpha)
+
+#err
