@@ -64,3 +64,8 @@ for i in range(len(new_weights)):
 
 print("new weights after normalization:", new_weights)
 print("sum:", sum(new_weights))
+
+data.weights = new_weights
+
+print("updated data weights: ", data.weights)
+print()
