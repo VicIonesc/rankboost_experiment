@@ -70,6 +70,8 @@ data.weights = new_weights
 print("updated data weights: ", data.weights)
 print()
 
+#adaboost round 2 test
+
 print("BEST STUMP ROUND 2: ")
 
 best_stump = None
