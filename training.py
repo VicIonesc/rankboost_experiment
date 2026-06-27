@@ -1,0 +1,23 @@
+
+#####
+def find_best_stump(data, thresholds):
+    best_stump = None
+    best_error = float("inf")
+    best_predictions = None
+
+    for threshold in thresholds:
+        stump = Stump(threshold=threshold)
+        predictions = stump.predict_all(data.x)
+
+        error = 0
+
+        for i in range(len(data.y)):
+            if predictions[i] != data.y[i]:
+                error += data.weights[i]
+
+        if error < best_error:
+            best_error = error
+            best_stump = stump
+            best_predictions = predictions
+
+    return best_stump, best_error, best_predictions
