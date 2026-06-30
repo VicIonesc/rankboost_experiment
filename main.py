@@ -1,6 +1,8 @@
 from adaboost.mydataset import Data
 from adaboost.stump import Stump
 import math
+from adaboost.training import find_best_stump
+
 
 data = Data()
 
