@@ -2,6 +2,7 @@ from adaboost.mydataset import Data
 from adaboost.stump import Stump
 import math
 from adaboost.training import find_best_stump
+#best_stump, best_error, best_predictions = find_best_stump(data, thresholds)
 
 
 data = Data()
